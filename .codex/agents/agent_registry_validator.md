@@ -32,7 +32,7 @@ HEALTH_CHECK_MODE:
 4. RETURN_BINARY_STATUS: OK/NOT_OK (no detailed error breakdown)
 
 FRAMEWORK_INTEGRITY_CHECKS:
-1. VERIFY codex/ base directory structure
+1. VERIFY .codex/ base directory structure
 2. CHECK required subdirectories exist
 3. VALIDATE config files: variables.yml, config.json, mcp-config.yml
 4. ENSURE workflow files exist for all commands

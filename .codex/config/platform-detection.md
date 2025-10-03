@@ -3,7 +3,7 @@
 PLATFORM_DETECTION_WITH_OVERRIDE (Codex workspace):
 
 1. PLATFORM_OVERRIDE_CHECK:
-   - CHECK codex/config/platform-override.json
+   - CHECK ..codex/config/platform-override.json
    - IF override exists → USE override platform (skip auto-detection)
    - IF override = "auto" → PROCEED to auto-detection
 
@@ -25,7 +25,7 @@ PLATFORM_DETECTION_WITH_OVERRIDE (Codex workspace):
 
 5. ADAPTER_LOADING (Codex directory):
    - Directory name is codex (Codex-first, adapters maintain compatibility)
-   - LOAD platform-specific configuration from codex/platforms/{platform}/
+   - LOAD platform-specific configuration from ..codex/platforms/{platform}/
    - INITIALIZE tool mappings for selected platform
    - SET command prefixes and execution model
    - CONFIGURE environment variable mappings

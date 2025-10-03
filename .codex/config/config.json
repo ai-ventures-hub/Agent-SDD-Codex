@@ -24,7 +24,7 @@
   },
   "paths": {
     "auto_discovery": true,
-    "base_directory": "codex",
+    "base_directory": ".codex",
     "path_validation": true,
     "create_missing_directories": true,
     "resolution_cache": {

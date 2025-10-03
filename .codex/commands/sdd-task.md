@@ -5,10 +5,10 @@
 COMMAND_SYNTAX: #sdd-task --<flag> [arguments]
 
 SUPPORTED_FLAGS:
-Workflow support is defined in `codex/config/variables.yml` under the `commands` map. Updating that registry is sufficient for new workflows; the dispatcher and docs reference it directly.
+Workflow support is defined in `.codex/config/variables.yml` under the `commands` map. Updating that registry is sufficient for new workflows; the dispatcher and docs reference it directly.
 
 WORKFLOW_DISPATCH:
-- READ codex/config/variables.yml → commands map
+- READ .codex/config/variables.yml → commands map
 - IF flag ∉ commands map → RETURN {{errors.shared.ERR_001}}
 - ELSE:
   - SELECT output style:

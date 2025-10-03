@@ -1,4 +1,4 @@
-SPEC_DIRECTORY_PATTERN: codex/specs/{slug}_{type}_{YYYY-MM-DD}/
+SPEC_DIRECTORY_PATTERN: .codex/specs/{slug}_{type}_{YYYY-MM-DD}/
 
 **Components:**
 - `slug`: URL-safe identifier (see Slug Algorithm below)
@@ -7,10 +7,10 @@ SPEC_DIRECTORY_PATTERN: codex/specs/{slug}_{type}_{YYYY-MM-DD}/
 
 **Examples:**
 ```
-codex/specs/user-authentication_feature_2025-10-02/
-codex/specs/dark-mode-enhancement_2025-10-01/
-codex/specs/refactor-api-refactor_2025-09-30/
-codex/specs/bug-fix-fix_2025-09-29/
+.codex/specs/user-authentication_feature_2025-10-02/
+.codex/specs/dark-mode-enhancement_2025-10-01/
+.codex/specs/refactor-api-refactor_2025-09-30/
+.codex/specs/bug-fix-fix_2025-09-29/
 ```
 
 ### Validation Regex
@@ -110,7 +110,7 @@ This ensures:
 - Optional lowercase suffix with possible number
 
 DIRECTORY_STRUCTURE:
-codex/specs/{directory-name}/
+.codex/specs/{directory-name}/
 ├── spec.md
 ├── tasks.json
 

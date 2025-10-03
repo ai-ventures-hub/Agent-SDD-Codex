@@ -1,13 +1,13 @@
-# Universal Framework: Single codex Directory
+# Universal Framework: Single .codex Directory
 
-Agent-SDD Universal uses one `codex/` directory that automatically adapts to Claude, Grok, and GitHub Copilot through intelligent platform detection.
+Agent-SDD Universal uses one `.codex/` directory that automatically adapts to Claude, Grok, and GitHub Copilot through intelligent platform detection.
 
 ## Universal Directory Strategy
 
-### Single codex Directory for All Platforms
+### Single .codex Directory for All Platforms
 One directory serves all platforms through adaptive configuration:
 
-- **`codex/`** - Universal directory (automatic platform detection)
+- **`.codex/`** - Universal directory (automatic platform detection)
 - **Codex CLI** - Manual bootstrap required, sequential execution (default)
 - **Claude Code** - Automatic loading + slash commands (native support)
 - **Grok Adapter** - Manual bootstrap required, sequential execution
@@ -16,11 +16,11 @@ One directory serves all platforms through adaptive configuration:
 The same directory structure works across all platforms:
 
 ```
-codex/
+.codex/
 ├── platforms/        # Platform adapters (auto-selected based on detection)
 │   ├── claude/       # Claude Code configuration
 │   ├── grok/         # Grok configuration
-│   └── codex/        # GitHub Copilot configuration
+│   └── .codex/        # GitHub Copilot configuration
 ├── agents/          # Universal agents (adapt to platform capabilities)
 ├── commands/        # Workflows and dispatchers (platform-aware)
 ├── config/          # Configuration (platform-specific loading)
@@ -36,32 +36,32 @@ Single repository with universal directory:
 ```
 Agent-SDD/
 ├── main (development)
-└── codex/         # Universal directory for all platforms
+└── .codex/         # Universal directory for all platforms
 ```
 
 ### Companion App Integration
-Your companion app installs the same `codex/` directory for all users:
+Your companion app installs the same `.codex/` directory for all users:
 
-1. **Single Download**: Always download `codex/` directory
+1. **Single Download**: Always download `.codex/` directory
 2. **Automatic Adaptation**: Framework detects platform and adapts automatically  
 3. **Bootstrap Guidance**: Guide Grok/Codex users through initial setup
 
 ## Platform-Specific Behavior
 
 ### Codex CLI (Default)
-- Directory: `codex/` (primary workspace)
+- Directory: `.codex/` (primary workspace)
 - Commands: `#sdd-task --init` (default syntax)
 - Agent Execution: Sequential simulation inside VS Code
 - Setup: Manual framework knowledge loading once per session
 
 ### Claude Code (Adapter)
-- Directory: `codex/` (recognized automatically)
+- Directory: `.codex/` (recognized automatically)
 - Commands: `/sdd-task --init` (work immediately)
 - Agent Execution: Native sub-agent orchestration
 - Setup: Zero configuration required
 
 ### Grok (Adapter)
-- Directory: `codex/` (standard naming)
+- Directory: `.codex/` (standard naming)
 - Commands: `@sdd-task --init` (after bootstrap)
 - Agent Execution: Sequential simulation
 - Setup: Manual framework knowledge loading
@@ -69,7 +69,7 @@ Your companion app installs the same `codex/` directory for all users:
 ## Benefits of Universal Approach
 
 ### For Users
-- **Consistent Directory**: Always `codex/` regardless of platform
+- **Consistent Directory**: Always `.codex/` regardless of platform
 - **Clear Expectations**: Same directory structure everywhere
 - **Automatic Adaptation**: Framework handles platform differences
 - **Future-Proof**: Easy to add new platforms without directory changes

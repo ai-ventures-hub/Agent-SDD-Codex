@@ -73,9 +73,9 @@ sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec
 @sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec  # Grok
 ```
 
-## Directory Layout (codex workspace)
+## Directory Layout (.codex workspace)
 ```
-codex/
+.codex/
 ├── agents/           # Sub-agent definitions ({{system_counts.agents}} specialized agents)
 ├── analytics/        # Framework analytics and metrics
 │   ├── history/      # Archived JSON Lines log files
@@ -129,14 +129,14 @@ codex/
 
 ## Universal Installation (Codex workspace)
 
-Agent-SDD Codex edition ships a `codex/` directory, with adapters that keep Claude and Grok compatibility when needed:
+Agent-SDD Codex edition ships a `.codex/` directory, with adapters that keep Claude and Grok compatibility when needed:
 
-- **Directory**: `codex/` (primary location for this edition)
+- **Directory**: `.codex/` (primary location for this edition)
 - **Codex CLI**: Automatic loading + `#` commands
 - **Claude**: Adapter shim keeps `/sdd-task` usable
 - **Grok**: Adapter shim keeps `@sdd-task` usable
 
-The `codex/` directory adapts its behavior based on detected platform while remaining Codex-first.
+The `.codex/` directory adapts its behavior based on detected platform while remaining Codex-first.
 
 ### Companion App Platform Configuration
 
@@ -150,11 +150,11 @@ set-platform grok     # Configure for Grok
 set-platform auto     # Use automatic detection
 ```
 
-This creates `codex/config/platform-override.json` with the selected platform preference.
+This creates `.codex/config/platform-override.json` with the selected platform preference.
 
 ## Centralized Variables
 - paths: All file paths are centralized in `variables.yml` for maintainability:
-  - `{{paths.base_dir}}` - Root codex directory
+  - `{{paths.base_dir}}` - Root .codex directory
   - `{{paths.product_dir}}` - Generated product docs
   - `{{paths.specs_dir}}` - Generated specifications
   - `{{paths.standards_dir}}` - Generated standards
@@ -175,10 +175,10 @@ This creates `codex/config/platform-override.json` with the selected platform pr
 - agents: All agent paths are defined under `agents.*` in `variables.yml` and referenced as `{{agents.NAME}}` in workflows.
 
 ## Commands ({{system_counts.workflows}} optimized flags)
-Workflow definitions are maintained in `codex/config/variables.yml` under the `commands` map. Update that file when workflows change; other files read from the same registry to stay synchronized.
+Workflow definitions are maintained in `.codex/config/variables.yml` under the `commands` map. Update that file when workflows change; other files read from the same registry to stay synchronized.
 
-- Authoritative registry: `codex/config/variables.yml` → `commands`
-- Dispatcher: `codex/commands/sdd-task.md` consumes the registry
+- Authoritative registry: `.codex/config/variables.yml` → `commands`
+- Dispatcher: `.codex/commands/sdd-task.md` consumes the registry
 - Documentation: this section intentionally references the registry instead of duplicating the list
 
 ## Enforcement (hard rules)
@@ -314,13 +314,13 @@ Agent-SDD enforces proper workflow execution order through comprehensive depende
 - **settings.local.json**: Local overrides for command permissions
 
 ## Generation Policy
-- `codex/product/`, `codex/specs/`, `codex/standards/` start EMPTY
+- `.codex/product/`, `.codex/specs/`, `.codex/standards/` start EMPTY
 - `--init` (project-analyzer): Generates `standards/tech-stack.md`, `standards/best-practices.md`, `standards/architecture.md`
 - `--bootstrap` (project-starter): Generates `product/overview.md`, `product/roadmap.md`, `standards/theme-standards.md`
 - Choose workflow path after init:
   - New projects: `--bootstrap` (MCP-powered setup for empty directories)
   - Existing projects: `--next` (analyzes roadmap for next phase tasks)
-- `--spec`/`--next` generate specification directories in `codex/specs/`
+- `--spec`/`--next` generate specification directories in `.codex/specs/`
 - All generation follows strict naming: `{slug}_{type}_{YYYY-MM-DD}`
 
 ## License

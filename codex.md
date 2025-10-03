@@ -5,8 +5,8 @@ Agent-SDD framework for structured software development with 16 specialized sub-
 ## 🚨 CRITICAL: SDD-Task Command Recognition
 
 **WHEN YOU SEE `#sdd-task` commands, you MUST:**
-1. **IMMEDIATELY read `codex/commands/sdd-task.md`** to understand the command dispatcher
-2. **Follow the exact workflow** defined in `codex/commands/workflows/[flag].md`
+1. **IMMEDIATELY read `.codex/commands/sdd-task.md`** to understand the command dispatcher
+2. **Follow the exact workflow** defined in `.codex/commands/workflows/[flag].md`
 3. **Use Codex CLI tools** to execute all operations
 4. **Maintain framework integrity** and error handling protocols
 5. **Log all activities** to the analytics system
@@ -27,11 +27,11 @@ If you encounter `#sdd-task` commands without prior context:
 For `#sdd-task` commands:
 
 ### Pre-Flight Requirements
-1. Read `codex/commands/sdd-task.md` first
+1. Read `.codex/commands/sdd-task.md` first
 2. Confirm codex framework active and validate directory structure
 3. Framework integrity validated once during `--init`; subsequent commands use selective health checks
 4. Use Codex CLI tools for all file operations and agent invocations
-5. Follow exact workflow in `codex/commands/workflows/[flag].md`
+5. Follow exact workflow in `.codex/commands/workflows/[flag].md`
 6. Logging infrastructure automatically captures usage analytics
 7. Critical commands include framework health checkpoints and self-healing capabilities
 
@@ -43,7 +43,7 @@ For `#sdd-task` commands:
 
 ### Tool-Based Workflow Requirements
 - Execute workflows using Codex CLI tools instead of agent invocations
-- Reference agent specifications in `codex/agents/` for guidance but execute via tools
+- Reference agent specifications in `.codex/agents/` for guidance but execute via tools
 - Mandatory context gathering before file modifications using read_file tool
 - Mandatory logging before and after operations using search_replace tool
 - Use structured tool calls for all framework operations
@@ -63,13 +63,13 @@ Framework bypass returns {{errors.shared.ERR_010}}-{{errors.shared.ERR_014}}
 `@sdd-task --<flag> [arguments]` (Grok adapter)
 
 ### Workflow Flags
-Workflow definitions live in `codex/config/variables.yml` under the `commands` map. Update that file when adding or removing workflows; the dispatcher consumes it directly, so no other manual edits are required.
+Workflow definitions live in `.codex/config/variables.yml` under the `commands` map. Update that file when adding or removing workflows; the dispatcher consumes it directly, so no other manual edits are required.
 
-- Authoritative registry: `codex/config/variables.yml` → `commands`
-- Dispatcher: `codex/commands/sdd-task.md` loads the map at runtime
+- Authoritative registry: `.codex/config/variables.yml` → `commands`
+- Dispatcher: `.codex/commands/sdd-task.md` loads the map at runtime
 - Docs: keep this reference intact to avoid duplicated flag lists
 
-Reference: `codex/commands/sdd-task.md`
+Reference: `.codex/commands/sdd-task.md`
 
 ### Add a new agent
 ```bash
@@ -88,11 +88,11 @@ Project-agnostic variable system with auto-discovery:
 
 Categories: paths, agents, commands, constraints, errors, config
 
-Reference: `codex/config/variables.yml`
+Reference: `.codex/config/variables.yml`
 
 ## Path Variables (Centralized)
 All file paths are now centralized in variables.yml for maintainability:
-- `{{paths.base_dir}}` - Root codex directory
+- `{{paths.base_dir}}` - Root .codex directory
 - `{{paths.product_dir}}` - Generated product docs
 - `{{paths.specs_dir}}` - Generated specifications
 - `{{paths.standards_dir}}` - Generated standards
@@ -114,7 +114,7 @@ Centralized keys used by workflows:
 
 ## Directory Structure
 ```
-codex/
+.codex/
 ├── agents/                # Agent specifications
 ├── analytics/             # Usage analytics & metrics
 │   ├── logs/              # JSON Lines log files
@@ -153,7 +153,7 @@ codex/
 8. Centralized path variables - all file paths managed through variables.yml
 
 ## Framework Architecture
-Structured sub-agent system with workflows in `codex/commands/workflows/` and agents in `codex/agents/`. Agent templates and validator are centralized in `codex/templates/`.
+Structured sub-agent system with workflows in `.codex/commands/workflows/` and agents in `.codex/agents/`. Agent templates and validator are centralized in `.codex/templates/`.
 
 ## Analytics & Logging System
 Automatic usage tracking and framework evolution capabilities:
@@ -179,7 +179,7 @@ All file paths are centralized in `variables.yml` for maintainability:
 - Project-agnostic configuration
 
 ## Universal Agent Specification
-Reference: `codex/config/universal-agent-spec.md`
+Reference: `.codex/config/universal-agent-spec.md`
 
 Universal agents use standardized capabilities that auto-map to platform-specific tools:
 - `file_read` → Read (Claude), read_file (Codex), readFile (Codex)
@@ -196,9 +196,9 @@ Required 14 fields in tasks.json: id, type, title, description, status, priority
 
 ### Reference Order
 For `#sdd-task` commands:
-1. `codex/commands/sdd-task.md` - command specifications
-2. `codex/commands/workflows/[flag].md` - workflow details
-3. `codex/agents/[agent].md` - agent specifications (as needed)
+1. `.codex/commands/sdd-task.md` - command specifications
+2. `.codex/commands/workflows/[flag].md` - workflow details
+3. `.codex/agents/[agent].md` - agent specifications (as needed)
 
 ### Global Rules
 - Unmapped flag → ERR_001

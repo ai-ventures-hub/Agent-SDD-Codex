@@ -24,7 +24,7 @@ FRAMEWORK_VALIDATION:
    - TEST file creation in log directories
 
 3. FRAMEWORK_INTEGRITY_CHECK:
-   - VERIFY codex/ base directory structure
+   - VERIFY .codex/ base directory structure
    - CHECK required subdirectories exist: agents/, analytics/, commands/, config/, etc.
    - VALIDATE config files: variables.yml, config.json, mcp-config.yml
    - ENSURE workflow files exist for all commands

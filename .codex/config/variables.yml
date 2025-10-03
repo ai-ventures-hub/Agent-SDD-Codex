@@ -10,8 +10,8 @@ paths:
   current_dir: "{{platform_vars.current_dir}}"
   platform_name: "{{platform_vars.name}}"
 
-  # Base directory (Codex edition uses /codex workspace folder)
-  base_dir: "{{platform_vars.project_root}}/codex"
+  # Base directory (Codex edition uses /.codex workspace folder)
+  base_dir: "{{platform_vars.project_root}}/.codex"
 
   # Subdirectories (relative to base_dir)
   product_dir: "{{paths.base_dir}}/product"
@@ -204,9 +204,9 @@ framework:
   supported_types: ["shadcn", "antd", "mui", "chakra", "tailwind", "mantine"]
   extensions: [".ts", ".tsx", ".js", ".jsx", ".py", ".go", ".rs", ".java", ".cs"]
 
-# Error Code Registry - See codex/docs/error-codes.md
+# Error Code Registry - See .codex/docs/error-codes.md
 
-# MCP Configuration - See codex/config/mcp-config.yml
+# MCP Configuration - See .codex/config/mcp-config.yml
 
 # Template Configuration (Simplified with MCP)
 templates:

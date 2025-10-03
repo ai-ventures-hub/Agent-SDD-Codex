@@ -35,7 +35,7 @@ auto:
   - Adapts based on environment and available tools
 
 IMPLEMENTATION:
-1. UPDATE codex/config/platform-override.json
+1. UPDATE .codex/config/platform-override.json
 2. SET platform_override field to specified platform
 3. UPDATE override_timestamp and companion_app_version
 4. LOG platform change in analytics

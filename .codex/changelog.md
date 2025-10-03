@@ -8,7 +8,7 @@ This file tracks all changes made through `#sdd-task` commands, providing contex
 
 ### 2025-10-02 | Bug Fix - Phase Completion Check for Sequential Execution
 Fixed roadmap checkbox updates not working in Grok/Codex sequential execution mode
-- Files: codex/commands/workflows/execute.md
+- Files: .codex/commands/workflows/execute.md
 - Issue: Logger agent's phase completion check only worked in Claude's sub-agent orchestration, failed in sequential simulation
 - Fix: Added explicit PHASE_COMPLETION_CHECK step to execute workflow that works across all execution models
 - Status: completed

@@ -6,7 +6,7 @@ VARIABLE_SYSTEM_FIRST:
 - IF not: FALLBACK to manual detection
 
 MANUAL_DETECTION:
-- CHECK current directory for codex/
+- CHECK current directory for .codex/
 - SEARCH parent directories up to depth 3
 - CACHE result for workflow
 
@@ -16,7 +16,7 @@ PATH_RESOLUTION:
 - VALIDATE directory structure
 
 REQUIRED_STRUCTURE:
-codex/
+.codex/
 ├── agents/ ({{system_counts.agents}} files)
 ├── commands/
 ├── config/

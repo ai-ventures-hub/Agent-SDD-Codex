@@ -53,4 +53,4 @@ CONSTRAINTS:
 - VALIDATE schema via task-schema-validator
 - USE date-checker for dates
 - REFERENCE theme-standards.md for UI specs
-- ALWAYS work within codex directory structure
+- ALWAYS work within .codex directory structure

@@ -2,7 +2,7 @@
   "logger": {
     "max_entries": 50,
     "archive_threshold": 40,
-    "archive_dir": "codex/changelog-archive/"
+    "archive_dir": "..codex/changelog-archive/"
   },
   "test": {
     "preferred_framework": "auto",
