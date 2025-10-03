@@ -2,22 +2,16 @@
 # Framework optimized for local development workflows
 # Auto-discovers project structure and adapts paths accordingly
 
-# Universal Directory Structure (Single .claude Directory for All Platforms)
-# All platforms use .claude directory for Claude compatibility
+# Codex Edition Directory Structure (auto-detected per platform)
 paths:
-<<<<<<< Updated upstream:.claude/config/variables.yml
-  # Base directory (universal .claude naming for all platforms)
-  base_dir: "{{workspace_root}}/.claude"
-
   # Platform-aware environment variable resolution
   workspace_root: "{{platform_vars.workspace_root}}"
   project_root: "{{platform_vars.project_root}}"
   current_dir: "{{platform_vars.current_dir}}"
   platform_name: "{{platform_vars.name}}"
-=======
-  # Base directory (auto-discovered, defaults to .grok if not found)
-  base_dir: "{{GROK_DIR}}"
->>>>>>> Stashed changes:grok/config/variables.yml
+
+  # Base directory (Codex edition uses /codex workspace folder)
+  base_dir: "{{platform_vars.project_root}}/codex"
 
   # Subdirectories (relative to base_dir)
   product_dir: "{{paths.base_dir}}/product"
@@ -155,7 +149,7 @@ errors:
 # Command Configuration
 # Update workflow metadata here; other files reference this registry directly.
 commands:
-  base_command: "/sdd-task"
+  base_command: "#sdd-task"
   init:
     flag: "--init"
     description: "Initialize project with intelligent analysis & roadmap"
@@ -210,9 +204,9 @@ framework:
   supported_types: ["shadcn", "antd", "mui", "chakra", "tailwind", "mantine"]
   extensions: [".ts", ".tsx", ".js", ".jsx", ".py", ".go", ".rs", ".java", ".cs"]
 
-# Error Code Registry - See .grok/docs/error-codes.md
+# Error Code Registry - See codex/docs/error-codes.md
 
-# MCP Configuration - See .grok/config/mcp-config.yml
+# MCP Configuration - See codex/config/mcp-config.yml
 
 # Template Configuration (Simplified with MCP)
 templates:

@@ -1,4 +1,4 @@
-# sdd-task --edit [<description>]
+# #sdd-task --edit [<description>]
 
 PURPOSE: Quickly apply safe, single-responsibility edits with minimal context and logging.
 
@@ -20,7 +20,7 @@ SEQUENCE_GUARDS:
   - IF steps executed out of order → RETURN {{errors.shared.ERR_012}}
 
 2. MANDATORY_LOGGER_READ: READ {{agents.logger}} for logger guidance
-- EXECUTE logger using appropriate grok tools → recent_changes
+- EXECUTE logger using appropriate Codex CLI tools → recent_changes
    - VALIDATION: Must complete before proceeding to step 3
 
 3. TARGET_RESOLUTION: Determine files requiring modification
@@ -43,7 +43,7 @@ SEQUENCE_GUARDS:
    - SKIP theme compliance checks
 
 7. MANDATORY_LOGGER_WRITE: READ {{agents.logger}} for logger guidance
-- EXECUTE logger using appropriate grok tools
+- EXECUTE logger using appropriate Codex CLI tools
    - VALIDATION: Must complete to finalize workflow
 
 8. STATUS_UPDATE: Mark as completed with simple confirmation

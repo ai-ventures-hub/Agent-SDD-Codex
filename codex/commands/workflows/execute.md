@@ -1,4 +1,4 @@
-# sdd-task --execute <task-id> [task-id ...]
+# #sdd-task --execute <task-id> [task-id ...]
 
 PURPOSE: Execute one or more SDD tasks end-to-end with guardrails, design consultation, implementation, testing, and logging.
 
@@ -7,7 +7,7 @@ AGENT_EXECUTION_WORKFLOW: Task implementation with proactive theme guidance and 
 WORKFLOW_STEPS:
 
 0. LOGGER_READ: READ {{agents.logger}} for logger guidance
-- EXECUTE logger using appropriate grok tools → recent_changes
+- EXECUTE logger using appropriate Codex CLI tools → recent_changes
 
 1. CONTEXT_INIT: READ {{agents.context_manager}} for context management guidance
 - EXECUTE context initialization using read_file tool → workflow_context, caching

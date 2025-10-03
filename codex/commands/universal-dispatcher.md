@@ -52,7 +52,7 @@ Universal → Grok:
 Universal → Codex:
   sdd-task --init → #sdd-task --init
   sdd-task --execute TASK-001 → #sdd-task --execute TASK-001
-  output-style ai-to-ai-strict → #configure-output ai-to-ai-strict
+  output-style ai-to-ai-strict → #output-style ai-to-ai-strict
 
 VARIABLE_RESOLUTION:
 

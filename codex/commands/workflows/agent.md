@@ -1,4 +1,4 @@
-# sdd-task --agent <agent_name> [--tools Read,Write,Run_terminal_cmd]
+# #sdd-task --agent <agent_name> [--tools Read,Write,Run_terminal_cmd]
 
 PURPOSE: Scaffold a new agent, register it in variables.yml, and validate registry integrity.
 
@@ -42,14 +42,14 @@ SEQUENCE_GUARDS:
 
 6. GENERATE_AGENT_FILE:
    - READ {{agents.file_creator}} for file_creator guidance
-- EXECUTE file_creator using appropriate grok tools
+- EXECUTE file_creator using appropriate Codex CLI tools
    - REPLACE placeholders: <agent-name>, <Agent Name>, tools list
    - TARGET: {{paths.agents_dir}}/<agent_name>.md
    - IF file write fails → RETURN {{errors.bootstrap.ERR_018}}
 
 7. REGISTER_IN_VARIABLES:
    - READ {{agents.file_creator}} for file_creator guidance
-- EXECUTE file_creator using appropriate grok tools
+- EXECUTE file_creator using appropriate Codex CLI tools
    - APPEND mapping to variables.yml under agents:
      - <agent_name>: "{{paths.agents_dir}}/<agent_name>.md"
    - UPDATE system_counts.agents += 1
@@ -57,12 +57,12 @@ SEQUENCE_GUARDS:
 
 8. VALIDATE_REGISTRY:
    - READ {{agents.agent_registry_validator}} for agent_registry_validator guidance
-- EXECUTE agent_registry_validator using appropriate grok tools → OK|violations
+- EXECUTE agent_registry_validator using appropriate Codex CLI tools → OK|violations
    - IF violations → RETURN {{errors.shared.ERR_014}}
 
 9. LOG_COMPLETION:
    - READ {{agents.logger}} for logger guidance
-- EXECUTE logger using appropriate grok tools
+- EXECUTE logger using appropriate Codex CLI tools
 
 ERROR_HANDLING:
 - MISSING_ARGUMENTS {{errors.shared.ERR_002}}

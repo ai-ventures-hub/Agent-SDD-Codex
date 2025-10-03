@@ -9,9 +9,9 @@ capabilities: [universal_capability_list]
 
 # Optional: Platform-specific overrides
 platform_overrides:
+  codex: {custom_config}
   claude: {custom_config}
   grok: {custom_config}
-  codex: {custom_config}
 ---
 
 UNIVERSAL_CAPABILITIES:
@@ -59,7 +59,7 @@ For Claude (Sub-Agent Native):
 3. SUB_AGENT_INVOCATION: Use Task tool to invoke agent files directly
 4. RESULT_NORMALIZATION: Convert platform-specific results to universal format
 
-For Grok/Codex (Sequential Simulation):
+For Codex/Grok (Sequential Simulation):
 1. PLATFORM_DETECTION: Identify running platform
 2. WORKFLOW_PARSING: Read workflow instructions and agent references
 3. INLINE_EXECUTION: Main agent reads agent files and executes logic sequentially
@@ -68,7 +68,7 @@ For Grok/Codex (Sequential Simulation):
 
 HYBRID_EXECUTION_STRATEGY:
 - Claude: True sub-agent orchestration with Task tool
-- Grok/Codex: Sequential workflow simulation with context passing
+- Codex/Grok: Sequential workflow simulation with context passing
 - Universal Interface: Same workflow definitions work across all platforms
 
 PLATFORM_CAPABILITY_MATRIX:
@@ -77,12 +77,12 @@ claude:
   execution_model: parallel_orchestration
   context_sharing: automatic
 
-grok:
+codex:
   sub_agent_support: false
   execution_model: sequential_simulation
   context_sharing: manual_passing
 
-codex:
+grok:
   sub_agent_support: false
   execution_model: sequential_simulation
   context_sharing: manual_passing

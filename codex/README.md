@@ -14,14 +14,14 @@ For complete documentation, see the main project README.md in the parent directo
 - **Living Architecture**: Automatic Mermaid diagram generation and maintenance
 
 ### Getting Started
-1. Use platform-specific syntax or universal `sdd-task` commands
-2. Start with `sdd-task --init` for project analysis
+1. Use Codex-first `#sdd-task` commands (universal `sdd-task` alias still works)
+2. Start with `#sdd-task --init` for project analysis
 3. Follow the structured workflow: init → spec → execute → improve
 
 ### Platform Support
+- **Codex**: `#sdd-task` (default in this edition; sequential execution inside VS Code)
 - **Claude**: `/sdd-task` (automatic loading, sub-agent orchestration)
-- **Grok**: `sdd-task` (manual bootstrap required, sequential execution)
-- **Codex**: `sdd-task` (manual bootstrap required, sequential execution)
+- **Grok adapter**: `@sdd-task` (manual bootstrap required, sequential execution)
 
 ### Directory Structure
 - `agents/` - Universal agent specifications

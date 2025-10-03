@@ -1,4 +1,4 @@
-# sdd-task --improve <type> <description> [target]
+# #sdd-task --improve <type> <description> [target]
 
 PURPOSE: Implement targeted enhancements or fixes with risk-based validation and logging.
 
@@ -18,7 +18,7 @@ SEQUENCE_GUARDS:
   - IF steps executed out of order → RETURN {{errors.shared.ERR_012}}
 
 0. LOGGER_READ: READ {{agents.logger}} for logger guidance
-- EXECUTE logger using appropriate grok tools → recent_changes
+- EXECUTE logger using appropriate Codex CLI tools → recent_changes
 
 1. PARSE_ARGUMENTS: Extract improvement type, description, optional target
 

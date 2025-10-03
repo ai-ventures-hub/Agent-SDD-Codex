@@ -1,4 +1,4 @@
-# sdd-task --validate_system
+# #sdd-task --validate_system
 
 PURPOSE: Comprehensive framework validation and health check. Validates agent registry, path variables, and framework integrity.
 
@@ -12,7 +12,7 @@ SEQUENCE_GUARDS:
 FRAMEWORK_VALIDATION:
 1. AGENT_REGISTRY_CHECK:
    - READ {{agents.agent_registry_validator}} for agent_registry_validator guidance
-- EXECUTE agent_registry_validator using appropriate grok tools → registry_status|paths_status|framework_status
+- EXECUTE agent_registry_validator using appropriate Codex CLI tools → registry_status|paths_status|framework_status
    - CHECK all agent files exist and are properly formatted
    - VERIFY agent registry mappings in variables.yml
    - VALIDATE required agent metadata: name, description, tools
@@ -24,7 +24,7 @@ FRAMEWORK_VALIDATION:
    - TEST file creation in log directories
 
 3. FRAMEWORK_INTEGRITY_CHECK:
-   - VERIFY .grok/ base directory structure
+   - VERIFY codex/ base directory structure
    - CHECK required subdirectories exist: agents/, analytics/, commands/, config/, etc.
    - VALIDATE config files: variables.yml, config.json, mcp-config.yml
    - ENSURE workflow files exist for all commands

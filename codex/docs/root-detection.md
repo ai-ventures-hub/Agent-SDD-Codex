@@ -1,12 +1,12 @@
 ROOT_DETECTION_PROTOCOL:
 
 VARIABLE_SYSTEM_FIRST:
-- CHECK {{GROK_DIR}} resolved
+- CHECK {{paths.base_dir}} resolved
 - IF resolved: USE auto-discovered path
 - IF not: FALLBACK to manual detection
 
 MANUAL_DETECTION:
-- CHECK current directory for .grok/
+- CHECK current directory for codex/
 - SEARCH parent directories up to depth 3
 - CACHE result for workflow
 
@@ -16,7 +16,7 @@ PATH_RESOLUTION:
 - VALIDATE directory structure
 
 REQUIRED_STRUCTURE:
-.grok/
+codex/
 ├── agents/ ({{system_counts.agents}} files)
 ├── commands/
 ├── config/
@@ -32,7 +32,7 @@ SEARCH_CONFIG:
 - CACHE_RESULTS: enabled
 
 ERROR_RECOVERY:
-- NOT_FOUND: Run /sdd-task --init
+- NOT_FOUND: Run #sdd-task --init
 - INVALID_STRUCTURE: Regenerate missing components
 - PERMISSIONS: Check directory access
 

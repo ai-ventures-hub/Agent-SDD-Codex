@@ -1,4 +1,4 @@
-# sdd-task --style [file_path]
+# #sdd-task --style [file_path]
 
 PURPOSE: Theme standards enforcement and compliance checking.
 
@@ -10,7 +10,7 @@ WORKFLOW_STEPS:
 
 2. INVOKE_STYLE_AGENT:
    - READ {{agents.style}} for style guidance
-- EXECUTE style using appropriate grok tools
+- EXECUTE style using appropriate Codex CLI tools
    - Compare against {{paths.standards_dir}}/theme-standards.md
    - Auto-correct minor violations
    - Flag major inconsistencies
@@ -18,11 +18,11 @@ WORKFLOW_STEPS:
 3. UPDATE_STANDARDS:
    - IF new patterns detected → update theme-standards.md
    - READ {{agents.style}} for style guidance
-- EXECUTE style using appropriate grok tools
+- EXECUTE style using appropriate Codex CLI tools
 
 4. APPLY_CORRECTIONS:
    - READ {{agents.style}} for style guidance
-- EXECUTE style using appropriate grok tools
+- EXECUTE style using appropriate Codex CLI tools
    - Direct file updates for theme compliance
 
 ERROR_HANDLING:

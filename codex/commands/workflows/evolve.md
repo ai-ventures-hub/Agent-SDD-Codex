@@ -1,4 +1,4 @@
-# sdd-task --evolve
+# #sdd-task --evolve
 
 PURPOSE: Evolve and optimize the Agent-SDD framework via analytics-driven improvements and validation.
 
@@ -10,14 +10,14 @@ SEQUENCE_GUARDS:
   - IF not → ATTEMPT framework_health_check
 - FRAMEWORK_HEALTH_CHECK:
   - READ {{agents.agent_registry_validator}} for agent_registry_validator guidance
-- EXECUTE agent_registry_validator using appropriate grok tools → health_status
+- EXECUTE agent_registry_validator using appropriate Codex CLI tools → health_status
   - IF health_check="ok" → CONTINUE with reduced_validation_mode
   - IF health_check="not_ok" → RETURN {{errors.shared.ERR_014}}
 - ORDER_ENFORCEMENT:
   - IF steps executed out of order → RETURN {{errors.shared.ERR_012}}
 
 DEPENDENCIES:
-- Requires active .grok framework
+- Requires active codex framework
 - May reference {{paths.changelog_file}} and {{paths.analytics_dir}} data
 
 REDUCED_VALIDATION_MODE:
@@ -27,21 +27,21 @@ REDUCED_VALIDATION_MODE:
 - LOG validation state for monitoring
 
 1. COLLECT_METRICS: READ {{agents.analytics_collector}} for analytics_collector guidance
-- EXECUTE analytics_collector using appropriate grok tools → usage_stats, perf_data, error_patterns
+- EXECUTE analytics_collector using appropriate Codex CLI tools → usage_stats, perf_data, error_patterns
 2. ANALYZE_PATTERNS: READ {{agents.framework_improver}} for framework_improver guidance
-- EXECUTE framework_improver using appropriate grok tools → bottlenecks, opportunities
+- EXECUTE framework_improver using appropriate Codex CLI tools → bottlenecks, opportunities
 3. VALIDATE_FRAMEWORK: READ {{agents.framework_improver}} for framework_improver guidance
-- EXECUTE framework_improver using appropriate grok tools → self_test_report
+- EXECUTE framework_improver using appropriate Codex CLI tools → self_test_report
 4. GENERATE_REPORTS: READ {{agents.analytics_collector}} for analytics_collector guidance
-- EXECUTE analytics_collector using appropriate grok tools → health_report, recommendations
+- EXECUTE analytics_collector using appropriate Codex CLI tools → health_report, recommendations
 5. APPLY_OPTIMIZATIONS: READ {{agents.framework_improver}} for framework_improver guidance
-- EXECUTE framework_improver using appropriate grok tools → changes_applied
+- EXECUTE framework_improver using appropriate Codex CLI tools → changes_applied
 6. EVOLVE_FEATURES: READ {{agents.framework_improver}} for framework_improver guidance
-- EXECUTE framework_improver using appropriate grok tools → enhancements
+- EXECUTE framework_improver using appropriate Codex CLI tools → enhancements
 7. VALIDATE_CHANGES: READ {{agents.code_reviewer}} for code_reviewer guidance
-- EXECUTE code_reviewer using appropriate grok tools → review_ok
+- EXECUTE code_reviewer using appropriate Codex CLI tools → review_ok
 8. UPDATE_DOCUMENTATION: READ {{agents.file_creator}} for file_creator guidance
-- EXECUTE file_creator using appropriate grok tools → version_bump, changelog_updates
+- EXECUTE file_creator using appropriate Codex CLI tools → version_bump, changelog_updates
 
 WORKFLOW_SUCCESS_CRITERIA:
 - Framework health score >= 90

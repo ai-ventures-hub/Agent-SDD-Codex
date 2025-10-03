@@ -1,9 +1,9 @@
-# Agent-SDD: Optimized Grok-First Software Development Framework
+# Agent-SDD: Codex Edition Software Development Framework
 
-Streamlined system for structured software development with grok-code-fast-1, featuring automated variable resolution, comprehensive error handling, workflow dependency enforcement, path validation, framework resilience with self-healing capabilities, living architecture diagrams, and {{system_counts.agents}} specialized sub-agents for reliable execution.
+Streamlined system for structured software development inside the Codex CLI, featuring automated variable resolution, comprehensive error handling, workflow dependency enforcement, path validation, framework resilience with self-healing capabilities, living architecture diagrams, and {{system_counts.agents}} specialized sub-agents for reliable execution.
 
 ## Why Agent-SDD
-- **Grok-first orchestration**: {{system_counts.agents}} specialized sub-agents execute strict workflows for repeatable results
+- **Codex-first orchestration**: {{system_counts.agents}} specialized sub-agents execute strict workflows for repeatable results in the Codex CLI
 - **Single command surface**: `/sdd-task` with {{system_counts.workflows}} optimized flags for complete development lifecycle
 - **Living architecture diagrams**: Automatic Mermaid diagram generation and maintenance throughout project lifecycle
 - **Automated variable system**: Platform-agnostic variable resolution with intelligent auto-discovery
@@ -21,21 +21,20 @@ Streamlined system for structured software development with grok-code-fast-1, fe
 ## Quick Start
 
 ### For New Chat Sessions
-1. **Load framework context**: Share `.grok/GROK.md` with grok once per session
-2. **Framework auto-detects**: `.grokrc` file signals framework presence
-3. **Commands work automatically**: `/sdd-task` commands are now recognized
+1. **Load framework context**: Share `codex.md` with Codex once per session
+2. **Framework auto-detects**: `.codexrc` file signals framework presence
+3. **Commands work automatically**: `#sdd-task` commands are now recognized
 
 ### Usage Examples
 ```bash
 # Agent-SDD Universal automatically adapts to your AI assistant
-# Works with Claude (/sdd-task), Grok (@sdd-task), or Codex (#sdd-task)
+# Codex edition defaults to #sdd-task with adapters for Claude (/sdd-task) and Grok (@sdd-task)
 
 # 1) Initialize project with overview analysis
+#sdd-task --init                   # Codex (default in this edition)
 sdd-task --init                    # Universal command (adapts automatically)
-# OR use platform-specific syntax if preferred:
-/sdd-task --init                   # Claude
-@sdd-task --init                   # Grok
-#sdd-task --init                   # Codex
+/sdd-task --init                   # Claude adapter
+@sdd-task --init                   # Grok adapter
 
 # 2) Choose bootstrap approach:
 # For new projects (standards-based or MCP-powered)
@@ -46,30 +45,37 @@ sdd-task --bootstrap --shadcn      # MCP-powered shadcn/ui setup
 sdd-task --next                    # Auto-generate next specification
 
 # 3) Execute development tasks
-sdd-task --execute TASK-001        # Implement with testing & quality checks
+#sdd-task --execute TASK-001       # Codex (primary)
+sdd-task --execute TASK-001        # Universal command (adapts automatically)
 
 # 4) Improve or edit as needed
+#sdd-task --improve enhancement "Adjust button spacing"
+#sdd-task --edit "Fix typo in component"
 sdd-task --improve enhancement "Adjust button spacing"
 sdd-task --edit "Fix typo in component"
 
 # 5) Evolve the framework (optional)
+#sdd-task --evolve                 # Codex (primary)
 sdd-task --evolve                  # Run self-improvement and analytics cycle
 ```
 
 ### Add a new agent
 ```bash
+# Codex-first syntax (default in this edition)
+#sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec
+
 # Universal command (adapts to your platform)
 sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec
 
 # Platform-specific syntax still works:
-/sdd-task --agent my_agent --tools Read,Write,Run_terminal_cmd  # Claude
-@sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec  # Grok
 #sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec  # Codex
+/sdd-task --agent my_agent --tools Read,Write,Run_terminal_cmd   # Claude
+@sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec  # Grok
 ```
 
-## Directory Layout (.grok workspace)
+## Directory Layout (codex workspace)
 ```
-.grok/
+codex/
 ├── agents/           # Sub-agent definitions ({{system_counts.agents}} specialized agents)
 ├── analytics/        # Framework analytics and metrics
 │   ├── history/      # Archived JSON Lines log files
@@ -121,16 +127,16 @@ sdd-task --agent my_agent --capabilities file_read,file_write,terminal_exec
     └── wireframe-templates.md
 ```
 
-## Universal Installation (Single .claude Directory)
+## Universal Installation (Codex workspace)
 
-Agent-SDD Universal uses a single `.claude/` directory for all platforms, with automatic platform detection and adaptation:
+Agent-SDD Codex edition ships a `codex/` directory, with adapters that keep Claude and Grok compatibility when needed:
 
-- **Directory**: `.claude/` (works on all platforms)
-- **Claude Code**: Automatic loading + slash commands
-- **Grok**: Manual bootstrap required, then full functionality
-- **GitHub Copilot**: Manual bootstrap required, then full functionality
+- **Directory**: `codex/` (primary location for this edition)
+- **Codex CLI**: Automatic loading + `#` commands
+- **Claude**: Adapter shim keeps `/sdd-task` usable
+- **Grok**: Adapter shim keeps `@sdd-task` usable
 
-The same `.claude/` directory adapts its behavior based on detected platform. Your companion app installs the universal `.claude/` directory for all users.
+The `codex/` directory adapts its behavior based on detected platform while remaining Codex-first.
 
 ### Companion App Platform Configuration
 
@@ -138,17 +144,17 @@ Your companion app can pre-configure Agent-SDD for specific platforms:
 
 ```bash
 # Pre-configure for specific platform
+set-platform codex    # Configure for Codex (default in this edition)
 set-platform claude   # Configure for Claude
 set-platform grok     # Configure for Grok
-set-platform codex    # Configure for GitHub Copilot
 set-platform auto     # Use automatic detection
 ```
 
-This creates `.claude/config/platform-override.json` with the selected platform preference.
+This creates `codex/config/platform-override.json` with the selected platform preference.
 
 ## Centralized Variables
 - paths: All file paths are centralized in `variables.yml` for maintainability:
-  - `{{paths.base_dir}}` - Root .grok directory
+  - `{{paths.base_dir}}` - Root codex directory
   - `{{paths.product_dir}}` - Generated product docs
   - `{{paths.specs_dir}}` - Generated specifications
   - `{{paths.standards_dir}}` - Generated standards
@@ -169,10 +175,10 @@ This creates `.claude/config/platform-override.json` with the selected platform 
 - agents: All agent paths are defined under `agents.*` in `variables.yml` and referenced as `{{agents.NAME}}` in workflows.
 
 ## Commands ({{system_counts.workflows}} optimized flags)
-Workflow definitions are maintained in `.grok/config/variables.yml` under the `commands` map. Update that file when workflows change; other files read from the same registry to stay synchronized.
+Workflow definitions are maintained in `codex/config/variables.yml` under the `commands` map. Update that file when workflows change; other files read from the same registry to stay synchronized.
 
-- Authoritative registry: `.grok/config/variables.yml` → `commands`
-- Dispatcher: `.grok/commands/sdd-task.md` consumes the registry
+- Authoritative registry: `codex/config/variables.yml` → `commands`
+- Dispatcher: `codex/commands/sdd-task.md` consumes the registry
 - Documentation: this section intentionally references the registry instead of duplicating the list
 
 ## Enforcement (hard rules)
@@ -187,7 +193,7 @@ Workflow definitions are maintained in `.grok/config/variables.yml` under the `c
 
 ## Agent Architecture
 
-Agent-SDD uses {{system_counts.agents}} specialized sub-agents following structured workflow specifications for grok-code-fast-1:
+Agent-SDD uses {{system_counts.agents}} specialized sub-agents following structured workflow specifications for Codex CLI:
 
 ### Core Agents
 - **date-checker**: Provides consistent date formatting for task schemas
@@ -308,13 +314,13 @@ Agent-SDD enforces proper workflow execution order through comprehensive depende
 - **settings.local.json**: Local overrides for command permissions
 
 ## Generation Policy
-- `.grok/product/`, `.grok/specs/`, `.grok/standards/` start EMPTY
+- `codex/product/`, `codex/specs/`, `codex/standards/` start EMPTY
 - `--init` (project-analyzer): Generates `standards/tech-stack.md`, `standards/best-practices.md`, `standards/architecture.md`
 - `--bootstrap` (project-starter): Generates `product/overview.md`, `product/roadmap.md`, `standards/theme-standards.md`
 - Choose workflow path after init:
   - New projects: `--bootstrap` (MCP-powered setup for empty directories)
   - Existing projects: `--next` (analyzes roadmap for next phase tasks)
-- `--spec`/`--next` generate specification directories in `.grok/specs/`
+- `--spec`/`--next` generate specification directories in `codex/specs/`
 - All generation follows strict naming: `{slug}_{type}_{YYYY-MM-DD}`
 
 ## License

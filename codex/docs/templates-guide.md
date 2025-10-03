@@ -88,7 +88,7 @@ Agent-SDD Universal uses a comprehensive template system for generating consiste
 ## Template Maintenance
 
 ### Version Control
-**Location:** `.claude/templates/` directory
+**Location:** `codex/templates/` directory
 **Updates:** Modify via `--evolve` command
 **Validation:** Automatic syntax checking
 **Backup:** Version history maintained
@@ -173,7 +173,7 @@ Total: 11 template files
 ## Troubleshooting
 
 ### Common Issues
-**Template Not Found:** Check .claude/templates/ directory structure
+**Template Not Found:** Check codex/templates/ directory structure
 **Placeholder Errors:** Verify variable resolution in context
 **Syntax Errors:** Validate Markdown syntax
 **Performance Issues:** Check file size limits

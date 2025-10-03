@@ -1,7 +1,7 @@
 # Universal Framework Bootstrap
 
 BOOTSTRAP_PROBLEM:
-- Claude automatically loads CLAUDE.md and recognizes framework
+- Claude automatically loads codex.md and recognizes framework
 - Grok and Codex require manual framework initialization
 - Users need to "teach" these platforms about Agent-SDD
 
@@ -10,34 +10,34 @@ BOOTSTRAP_SOLUTIONS:
 1. MANUAL_FRAMEWORK_LOADING:
    ```
    User: "Please read and understand this framework specification"
-   [Paste CLAUDE.md content]
-   User: "Now I can use sdd-task commands"
+   [Paste codex.md content]
+   User: "Now I can use #sdd-task commands"
    ```
 
 2. GRADUAL_FRAMEWORK_DISCOVERY:
    ```
-   User: "sdd-task --help"
+   User: "#sdd-task --help"
    AI: "I don't recognize this command. Please provide context."
-   User: "Read .claude/commands/universal-dispatcher.md"
+   User: "Read codex/commands/universal-dispatcher.md"
    AI: Learns about universal command structure
    ```
 
 3. CONTEXT_INJECTION_COMMANDS:
    ```
-   User: "Read .claude/README.md and understand this is Agent-SDD Universal"
-   User: "Now process sdd-task --init"
+   User: "Read codex/README.md and understand this is Agent-SDD Universal"
+   User: "Now process #sdd-task --init"
    ```
 
 FRAMEWORK_INITIALIZATION_SEQUENCE:
 
 For New Projects on Non-Claude Platforms:
-1. USER: "I want to use Agent-SDD framework. Please read .claude/README.md"
+1. USER: "I want to use Agent-SDD framework. Please read codex/README.md"
 2. AI: Learns about the framework
-3. USER: "Now read .claude/commands/universal-dispatcher.md to understand commands"
+3. USER: "Now read codex/commands/universal-dispatcher.md to understand commands"
 4. AI: Learns command structure
-5. USER: "Read .claude/config/platform-detection.md to understand platform adaptation"
+5. USER: "Read codex/config/platform-detection.md to understand platform adaptation"
 6. AI: Learns platform handling
-7. USER: "Now execute: sdd-task --init"
+7. USER: "Now execute: #sdd-task --init"
 8. AI: Processes command using learned framework knowledge
 
 CONTEXT_PERSISTENCE_STRATEGIES:
@@ -60,10 +60,10 @@ Grok Bootstrap:
 ```
 @grok I want to initialize the Agent-SDD framework in this workspace.
 Please read these files in order:
-1. .claude/README.md (framework overview)
-2. .claude/commands/universal-dispatcher.md (command system)
-3. .claude/config/platform-detection.md (platform adaptation)
-4. .claude/config/universal-agent-spec.md (agent system)
+1. codex/README.md (framework overview)
+2. codex/commands/universal-dispatcher.md (command system)
+3. codex/config/platform-detection.md (platform adaptation)
+4. codex/config/universal-agent-spec.md (agent system)
 
 Then I'll use commands like: @sdd-task --init
 ```
@@ -72,10 +72,10 @@ Codex Bootstrap:
 ```
 #codex Initialize Agent-SDD Universal framework.
 Read and understand:
-1. .claude/README.md
-2. .claude/commands/universal-dispatcher.md
-3. .claude/config/platform-detection.md
-4. .claude/config/universal-agent-spec.md
+1. codex/README.md
+2. codex/commands/universal-dispatcher.md
+3. codex/config/platform-detection.md
+4. codex/config/universal-agent-spec.md
 
 Framework ready for commands like: #sdd-task --init
 ```
@@ -84,7 +84,7 @@ VALIDATION_PROTOCOLS:
 
 Post-Bootstrap Verification:
 1. COMMAND_RECOGNITION: AI recognizes sdd-task command structure
-2. FILE_SYSTEM_AWARENESS: AI understands .claude/ directory structure
+2. FILE_SYSTEM_AWARENESS: AI understands codex/ directory structure
 3. WORKFLOW_COMPREHENSION: AI can read and execute workflow files
 4. AGENT_SYSTEM_UNDERSTANDING: AI comprehends agent invocation patterns
 

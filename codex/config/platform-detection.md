@@ -1,9 +1,9 @@
 # Platform Detection & Adaptation System
 
-PLATFORM_DETECTION_WITH_OVERRIDE (Universal .claude Directory):
+PLATFORM_DETECTION_WITH_OVERRIDE (Codex workspace):
 
 1. PLATFORM_OVERRIDE_CHECK:
-   - CHECK .claude/config/platform-override.json
+   - CHECK codex/config/platform-override.json
    - IF override exists → USE override platform (skip auto-detection)
    - IF override = "auto" → PROCEED to auto-detection
 
@@ -14,29 +14,29 @@ PLATFORM_DETECTION_WITH_OVERRIDE (Universal .claude Directory):
    - ELSE → FALLBACK_DETECTION
 
 3. COMMAND_AVAILABILITY_CHECK (Fallback):
+   - TEST #sdd-task command → CONFIRMS codex
    - TEST /sdd-task command → CONFIRMS claude
    - TEST @sdd-task command → CONFIRMS grok
-   - TEST #sdd-task command → CONFIRMS codex
 
 4. CAPABILITY_ASSESSMENT:
    - DETECT available tools for selected platform
    - ASSESS command execution capabilities
    - IDENTIFY platform limitations
 
-5. ADAPTER_LOADING (Single .claude Directory):
-   - Directory name is ALWAYS .claude (for Claude compatibility)
-   - LOAD platform-specific configuration from .claude/platforms/{platform}/
+5. ADAPTER_LOADING (Codex directory):
+   - Directory name is codex (Codex-first, adapters maintain compatibility)
+   - LOAD platform-specific configuration from codex/platforms/{platform}/
    - INITIALIZE tool mappings for selected platform
    - SET command prefixes and execution model
    - CONFIGURE environment variable mappings
 
 PLATFORM_CAPABILITIES:
 - CLAUDE: Full feature support, sub-agent orchestration, advanced tooling
-- GROK: Standard tooling, adapted command syntax, grok-code-fast-1 optimizations
+- GROK: Standard tooling, adapted command syntax, sequential adapter optimizations
 - CODEX: VS Code integration, GitHub Copilot features, workspace awareness
 
 FALLBACK_STRATEGIES:
-- IF platform undetected → DEFAULT to claude (backward compatibility)
+- IF platform undetected → DEFAULT to codex (Codex edition baseline)
 - IF tools unavailable → GRACEFUL_DEGRADATION with reduced functionality
 - IF commands fail → PROVIDE platform-specific setup instructions
 

@@ -4,9 +4,9 @@ COMMAND: set-platform [platform]
 PURPOSE: Configure Agent-SDD to use a specific AI assistant platform
 
 USAGE:
+- set-platform codex     # Configure for GitHub Copilot (default in this edition)
 - set-platform claude    # Configure for Claude Code
 - set-platform grok      # Configure for Grok
-- set-platform codex     # Configure for GitHub Copilot
 - set-platform auto      # Enable automatic platform detection
 
 PLATFORM_CONFIGURATION:
@@ -19,9 +19,9 @@ claude:
 
 grok:
   - Sets platform_override to "grok"
-  - Enables sequential agent execution
+  - Enables sequential agent execution adapter
   - Configures Grok command syntax (@)
-  - Optimizes for web access and streaming
+  - Optimizes for web access and streaming fallbacks
 
 codex:
   - Sets platform_override to "codex"
@@ -35,7 +35,7 @@ auto:
   - Adapts based on environment and available tools
 
 IMPLEMENTATION:
-1. UPDATE .claude/config/platform-override.json
+1. UPDATE codex/config/platform-override.json
 2. SET platform_override field to specified platform
 3. UPDATE override_timestamp and companion_app_version
 4. LOG platform change in analytics

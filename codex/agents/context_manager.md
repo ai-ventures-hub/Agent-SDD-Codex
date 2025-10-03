@@ -20,8 +20,8 @@ CACHE_MANAGEMENT:
 
 WORKFLOW_INTEGRATION:
 1. INIT context at workflow start with base path resolution
-2. RESOLVE {{GROK_DIR}} to .grok directory (search current + parent dirs)
-3. CREATE basic .grok directory structure if missing (agents/, commands/, config/, docs/, templates/)
+2. RESOLVE {{paths.base_dir}} to codex directory (search current + parent dirs)
+3. CREATE basic codex directory structure if missing (agents/, commands/, config/, docs/, templates/)
 4. SET {{PROJECT_ROOT}} to project root directory
 5. PASS resolved context to all agents
 6. CACHE file contents to avoid redundant reads
@@ -29,11 +29,11 @@ WORKFLOW_INTEGRATION:
 8. CLEAR context at workflow end
 
 PATH_RESOLUTION:
-- SEARCH for .grok directory in current directory and up to 3 parent levels
-- DEFAULT to "./.grok" if not found
-- CREATE .grok directory and basic subdirectories if missing
-- RESOLVE {{GROK_DIR}} = discovered .grok path
-- RESOLVE {{PROJECT_ROOT}} = directory containing .grok or current directory
+- SEARCH for codex directory in current directory and up to 3 parent levels
+- DEFAULT to "./codex" if not found
+- CREATE codex directory and basic subdirectories if missing
+- RESOLVE {{paths.base_dir}} = discovered codex path
+- RESOLVE {{PROJECT_ROOT}} = directory containing codex or current directory
 - ENSURE base directory structure exists before workflow execution
 
 DATE_CONSISTENCY: Single workflow date from context, no multiple date-checker calls

@@ -71,7 +71,7 @@ INIT_WORKFLOW_ERRORS: ERR_035-036, ERR_040-044 (initialization failures)
 ### Bootstrap Recovery
 ```
 Error: Framework not recognized on platform
-1. Verify platform override in .claude/config/platform-override.json
+1. Verify platform override in codex/config/platform-override.json
 2. Re-run bootstrap with progressive disclosure
 3. Test basic command: sdd-task --help
 4. Check platform-specific documentation

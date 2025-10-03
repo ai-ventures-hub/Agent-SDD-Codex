@@ -1,19 +1,19 @@
-# Agent-SDD Command Dispatcher: /sdd-task
+# Agent-SDD Command Dispatcher: #sdd-task
 
-**GROK EXECUTION MODE**: When processing `/sdd-task` commands, use grok-code-fast-1 tools to execute workflows instead of agent invocations.
+**CODEX EXECUTION MODE**: When processing `#sdd-task` commands, use Codex CLI tools to execute workflows instead of agent invocations.
 
-COMMAND_SYNTAX: /sdd-task --<flag> [arguments]
+COMMAND_SYNTAX: #sdd-task --<flag> [arguments]
 
 SUPPORTED_FLAGS:
-Workflow support is defined in `.grok/config/variables.yml` under the `commands` map. Updating that registry is sufficient for new workflows; the dispatcher and docs reference it directly.
+Workflow support is defined in `codex/config/variables.yml` under the `commands` map. Updating that registry is sufficient for new workflows; the dispatcher and docs reference it directly.
 
 WORKFLOW_DISPATCH:
-- READ .grok/config/variables.yml → commands map
+- READ codex/config/variables.yml → commands map
 - IF flag ∉ commands map → RETURN {{errors.shared.ERR_001}}
 - ELSE:
   - SELECT output style:
     - style_name := variables.output_styles.by_flag[flag] || variables.output_styles.default
-    - APPLY `/output-style ${style_name}` (project-level)
+    - APPLY `#output-style ${style_name}` (project-level)
   - ROUTE to commands[flag].workflow
 
 WORKFLOW_DEPENDENCY_MATRIX:
@@ -40,7 +40,7 @@ SEQUENCE_GUARD:
 - IF sequence violation detected → RETURN {{errors.shared.ERR_012}} with workflow_sequence
 
 WORKFLOW_GUIDANCE_MESSAGES:
-- init_required: "Run '/sdd-task --init' first to set up your project. This creates overview.md, roadmap.md, tech-stack.md, and best-practices.md."
+- init_required: "Run '#sdd-task --init' first to set up your project. This creates overview.md, roadmap.md, tech-stack.md, and best-practices.md."
 - sequence_help: "Correct workflow sequence: --init → --spec → --execute"
 - dependency_list: "Missing files: {files}. Run --init to generate required project documentation."
 
@@ -51,8 +51,8 @@ TASK_SCHEMA_VALIDATION:
 - ENFORCE 14-field schema: id, type, title, description, status, priority, created_date, ux_ui_reviewed, theme_changes, completed_date, target_files, dependencies, linked_task, acceptance_criteria
 
 PRE_FLIGHT_VALIDATION:
-- COMMAND must start with /sdd-task --
-- CONFIRM .grok framework active
+- COMMAND must start with #sdd-task --
+- CONFIRM codex framework active
 - VALIDATE directory structure: Check {{paths.base_dir}}, {{paths.agents_dir}}, {{paths.commands_dir}} exist
 - VALIDATE path variables: Ensure {{paths.*}} resolve to accessible paths and directories
 - TEST file accessibility: Confirm key directories ({{paths.analytics_dir}}, {{paths.logs_dir}}, {{paths.product_dir}}) are writable
@@ -61,7 +61,7 @@ PRE_FLIGHT_VALIDATION:
 - VALIDATE command syntax and arguments
 
 EXECUTION_FLOW:
-1. PARSE input: /sdd-task --<flag> [arguments]
+1. PARSE input: #sdd-task --<flag> [arguments]
 2. MANDATORY: Task tool subagent_type="logger" read mode
 3. VALIDATE task: Task tool subagent_type="task-schema-validator"
 4. MANDATORY: Task tool subagent_type="context_manager"
